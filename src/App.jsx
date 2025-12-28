@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Countdown from "./components/Countdown";
+import More from "./components/More";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -30,13 +31,19 @@ function App() {
               events: {
                 onHover: {
                   enable: true,
-                  mode: "repulse",
+                  mode: "attract",
+                },
+                onClick: {
+                  enable: true,
+                  mode: "push",
                 },
               },
               modes: {
-                repulse: {
-                  distance: 100,
-                  duration: 4,
+                push: {
+                  quantity: 10,
+                },
+                remove: {
+                  quantity: 10,
                 },
               },
             },
@@ -52,7 +59,7 @@ function App() {
                 straight: false,
               },
               number: {
-                value: 80,
+                value: 100,
               },
               opacity: {
                 value: 0.6,
@@ -61,16 +68,16 @@ function App() {
                 type: "circle",
               },
               size: {
-                value: { min: 0.5, max: 4 },
+                value: { min: 1, max: 4 },
               },
             },
           }}
         />
       )}
       <div className="flex flex-col gap-y-10 items-center h-screen">
-        <h1 className="font-[Berkshire_Swash] text-white text-4xl my-20">2025 Christmas Countdown</h1>
+        <h1 className="font-[Berkshire_Swash] text-white text-4xl my-20">2026 Christmas Countdown</h1>
         <Countdown />
-        <div className="text-gray-300 text-lg mt-30">Just 1 more shower until Christmas and 2 more until spring break!</div>
+        <More />
       </div>
     </div>
   );

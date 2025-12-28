@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Digit from "./Digit";
 
 function Countdown() {
-  const [countdown, setCountdown] = useState(new Date("2025/12/25").getTime() - new Date().getTime());
+  const [countdown, setCountdown] = useState(new Date("2026/12/25").getTime() - new Date().getTime());
   useEffect(() => {
     const interval = setInterval(() => {
       setCountdown((prev) => prev - 1000);
